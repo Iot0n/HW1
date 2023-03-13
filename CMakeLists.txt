@@ -3,4 +3,4 @@ project(sorts)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(sorts main.cpp)
+add_executable(sorts sorts.cpp)

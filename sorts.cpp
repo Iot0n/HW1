@@ -34,6 +34,7 @@ void test_bubbleSort (){
     }
     for (int i = 0; i < size; i++)
         std::cout << mass[i] << " ";
+    std::cout << std::endl;
 }
 
 int get_max_ind(int *mass, int size){
@@ -75,8 +76,40 @@ void test_selectionSort (){
     }
 }
 
+void inputSort(int *mass, int size){
+    int boofer;
+    //bool input = false;
+    for (int j = 1; j < size; j++){
+        boofer = mass[j];
+        for (int i = j;; i--){
+            if (boofer >= mass[i-1] || i == 0){
+                mass[i] = boofer;
+                break;
+            }
+            if (boofer < mass[i-1])
+                mass[i] = mass[i-1];
+        }
+    }
+}
+
+void test_inputSort(){
+    const int size = 10;
+    int mass[size] = {10, 20, 43, 68, 2, 0, 1, 23, 43, 65};
+    int etalonmass[size] = {0,1 ,2, 10, 20, 23, 43, 43, 65, 68};
+    inputSort(mass, size);
+    for (int i = 0; i < size; i++) {
+        if (mass[i] != etalonmass[i]) {
+            std::cout << "bad inputSort";
+            break;
+        }
+    }
+    for (int i = 0; i < size; i++)
+        std::cout << mass[i] << " ";
+}
+
 int main() {
     test_bubbleSort();
     test_get_max_ind();
+    test_inputSort();
     return 0;
 }
