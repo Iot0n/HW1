@@ -22,7 +22,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6ea06baf-e1cd-4106-8924-4f789e95df22" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/a.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sorts.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sorts.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,9 +65,9 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="sorts" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="sorts" TARGET_NAME="sorts" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="sorts" RUN_TARGET_NAME="sorts">
@@ -87,7 +86,8 @@
       <updated>1678640753068</updated>
       <workItem from="1678640754755" duration="2943000" />
       <workItem from="1678709148901" duration="10754000" />
-      <workItem from="1678723232361" duration="4583000" />
+      <workItem from="1678723232361" duration="4657000" />
+      <workItem from="1678808179920" duration="4575000" />
     </task>
     <servers />
   </component>

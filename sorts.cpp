@@ -21,21 +21,6 @@ void bubbleSort(int *mass, int size) {
     }
 }
 
-void test_bubbleSort (){
-    const int size = 10;
-    int mass[size] = {10, 20, 43, 68, 2, 0, 1, 23, 43, 65};
-    int etalonmass[size] = {0,1 ,2, 10, 20, 23, 43, 43, 65, 68};
-    bubbleSort(mass, size);
-    for (int i = 0; i < size-1; i++) {
-        if (mass[i] != etalonmass[i]) {
-            std::cout << "bad bubbleSort" << std::endl;
-            break;
-        }
-    }
-    for (int i = 0; i < size; i++)
-        std::cout << mass[i] << " ";
-    std::cout << std::endl;
-}
 
 int get_max_ind(int *mass, int size){
     int maxind = 0;
@@ -63,18 +48,6 @@ void selectionSort(int *mass, int size){
     }
 }
 
-void test_selectionSort (){
-    const int size = 10;
-    int mass[size] = {10, 20, 43, 68, 2, 0, 1, 23, 43, 65};
-    int etalonmass[size] = {0,1 ,2, 10, 20, 23, 43, 43, 65, 68};
-    selectionSort(mass, size);
-    for (int i = 0; i < size; i++) {
-        if (mass[i] != etalonmass[i]) {
-            std::cout << "bad selectionSort";
-            break;
-        }
-    }
-}
 
 void inputSort(int *mass, int size){
     int boofer;
@@ -90,21 +63,6 @@ void inputSort(int *mass, int size){
                 mass[i] = mass[i-1];
         }
     }
-}
-
-void test_inputSort(){
-    const int size = 10;
-    int mass[size] = {10, 20, 43, 68, 2, 0, 1, 23, 43, 65};
-    int etalonmass[size] = {0,1 ,2, 10, 20, 23, 43, 43, 65, 68};
-    inputSort(mass, size);
-    for (int i = 0; i < size; i++) {
-        if (mass[i] != etalonmass[i]) {
-            std::cout << "bad inputSort";
-            break;
-        }
-    }
-    for (int i = 0; i < size; i++)
-        std::cout << mass[i] << " ";
 }
 
 int get_max(int *mass, int size){
@@ -137,14 +95,44 @@ void countSort(int *mass, int size) {
         delete[] boofmass;
 }
 
-void test_countSort(){
+
+
+void quickSort(int *mass, int low, int high) {
+    int i = low;
+    int j = high;
+    int pivot = mass[(i + j) / 2];
+    int temp;
+
+    while (i <= j)
+    {
+        while (mass[i] < pivot)
+            i++;
+        while (mass[j] > pivot)
+            j--;
+        if (i <= j)
+        {
+            temp = mass[i];
+            mass[i] = mass[j];
+            mass[j] = temp;
+            i++;
+            j--;
+        }
+    }
+    if (j > low)
+        quickSort(mass, low, j);
+    if (i < high)
+        quickSort(mass, i, high);
+
+}
+
+void test(){
     const int size = 10;
     int mass[size] = {10, 20, 43, 68, 2, 7, 0, 23, 43, 65};
     int etalonmass[size] = {0,2 ,7, 10, 20, 23, 43, 43, 65, 68};
-    countSort(mass, size);
+    quickSort(mass, 0, size-1);
     for (int i = 0; i < size; i++) {
         if (mass[i] != etalonmass[i]) {
-            std::cout << "bad countSort";
+            std::cout << "bad Sort" << "  ";
             break;
         }
     }
@@ -153,6 +141,6 @@ void test_countSort(){
 }
 
 int main() {
-    test_countSort();
+    test();
     return 0;
 }
