@@ -8,4 +8,4 @@ sorts.o: sorts.cpp
 	g++ -c sorts.cpp 
 
 clean:
-	rm -rf *.o *.exe sort
+	rm -rf *.o out
