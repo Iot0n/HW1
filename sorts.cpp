@@ -1,4 +1,5 @@
 #include <iostream>
+#include "sorts.h"
 
 void swap(int& a, int& b) {
     a += b;
@@ -125,11 +126,43 @@ void quickSort(int *mass, int low, int high) {
 
 }
 
+void mergeSort(int *mass, int size){
+	if (size == 1)
+	return;
+
+  mergeSort(mass, size/2);
+  mergeSort(&mass[size/2], size - size/2);
+
+  int liter = 0; // left half iteraor
+  int riter = 0; // right half iteraor
+  int tmp[size];
+
+  for(int i = 0; i < size; i++){
+    if(mass[liter] < mass[size/2 + riter])
+      tmp[i] = mass[liter++];
+    else
+      tmp[i] = mass[size/2 + riter++];
+
+    if (liter == size / 2){ /* ran out of left half */
+      while(riter < size - size / 2)
+        tmp[++i] = mass[size/2 + riter++];
+      break;
+    } else if (riter == size - size / 2){ /* ran out of right half */
+      while(liter < size / 2)
+        tmp[++i] = mass[liter++];
+      break;
+    }
+  }
+
+  for(int i = 0; i < size; i++)
+    mass[i] = tmp[i];
+}
+
 void test(){
     const int size = 10;
     int mass[size] = {10, 20, 43, 68, 2, 7, 0, 23, 43, 65};
     int etalonmass[size] = {0,2 ,7, 10, 20, 23, 43, 43, 65, 68};
-    quickSort(mass, 0, size-1);
+    mergeSort(mass, size);
     for (int i = 0; i < size; i++) {
         if (mass[i] != etalonmass[i]) {
             std::cout << "bad Sort" << "  ";
